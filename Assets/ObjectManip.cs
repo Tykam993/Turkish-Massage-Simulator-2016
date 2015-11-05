@@ -19,9 +19,9 @@ public class ObjectManip : MonoBehaviour {
         if (!carriedOb)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, 2.5f))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 2f))
             {
-                Debug.DrawRay(transform.position, transform.forward, Color.green, 2.5f);
+
                 if (hit.transform.gameObject.GetComponent<InteractiveObject>())
                     {
                     tTipText.GetComponent<Text>().text = hit.transform.gameObject.GetComponent<InteractiveObject>().toolTip;
@@ -37,10 +37,14 @@ public class ObjectManip : MonoBehaviour {
         else
         {
 
-            Vector3 holdPos = transform.TransformPoint(transform.position);
+            Vector3 holdPos = transform.position + transform.forward;
             //Vector3 holdPos = transform.position;
-            holdPos.z = holdPos.z + carriedOb.GetComponent<InteractiveObject>().size;
+           // holdPos.z = holdPos.z + carriedOb.GetComponent<InteractiveObject>().size;
             carriedOb.transform.position = Vector3.Lerp(carriedOb.transform.position, holdPos, 1);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                carriedOb = null;
+            }
         }
     }
 }
