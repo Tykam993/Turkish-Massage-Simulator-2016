@@ -9,7 +9,7 @@ public class InteractiveObject : MonoBehaviour {
 
     public string toolTip;
     public float size;
-
+    public float vel;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +18,6 @@ public class InteractiveObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        vel = GetComponent<Rigidbody>().velocity.magnitude;
 	}
 }

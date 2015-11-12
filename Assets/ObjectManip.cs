@@ -29,6 +29,7 @@ public class ObjectManip : MonoBehaviour {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         carriedOb = hit.transform.gameObject;
+                        carriedOb.GetComponent<Rigidbody>().isKinematic = true;
                     }
                 }
                
@@ -39,11 +40,14 @@ public class ObjectManip : MonoBehaviour {
 
             Vector3 holdPos = transform.position + transform.forward;
             //Vector3 holdPos = transform.position;
-           // holdPos.z = holdPos.z + carriedOb.GetComponent<InteractiveObject>().size;
+            // holdPos.z = holdPos.z + carriedOb.GetComponent<InteractiveObject>().size;
+
             carriedOb.transform.position = Vector3.Lerp(carriedOb.transform.position, holdPos, 1);
             if (Input.GetKeyDown(KeyCode.E))
             {
+                carriedOb.GetComponent<Rigidbody>().isKinematic = false;
                 carriedOb = null;
+                
             }
         }
     }
