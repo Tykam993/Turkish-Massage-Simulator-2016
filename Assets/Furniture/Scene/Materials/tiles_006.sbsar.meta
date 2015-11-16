@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 46855b700ffa5974897c956b92d492bb
-timeCreated: 1447634983
+guid: 1e469b62bd70c4eddbb1dd867e02d520
+timeCreated: 1447636468
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
   materialInstances:
   - serializedVersion: 16
-    name: tiles_006
+    name: cube wall
     prototypeName: tiles_006
     shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-    shaderKeywords: _NORMALMAP _PARALLAXMAP
+    shaderKeywords: 
     renderQueue: -1
     lightmapFlags: 5
     inputs:
@@ -135,7 +135,7 @@ SubstanceImporter:
     materialInformation:
       serializedVersion: 5
       offset: {x: 0, y: 0}
-      scale: {x: 8, y: 5}
+      scale: {x: 1, y: 1}
       generateMipmaps: 1
       generateAllOutputs: 0
       animationUpdateRate: 0
@@ -147,14 +147,14 @@ SubstanceImporter:
             name: _MainTex
           second:
             texture: {instanceID: 0}
-            scale: {x: 8, y: 5}
+            scale: {x: 1, y: 1}
             offset: {x: 0, y: 0}
         data:
           first:
             name: _BumpMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 7, y: 5}
+            scale: {x: 1, y: 1}
             offset: {x: 0, y: 0}
         data:
           first:
@@ -168,7 +168,7 @@ SubstanceImporter:
             name: _ParallaxMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 7, y: 5}
+            scale: {x: 1, y: 1}
             offset: {x: 0, y: 0}
         data:
           first:
@@ -182,7 +182,7 @@ SubstanceImporter:
             name: _EmissionMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 8, y: 5}
+            scale: {x: 1, y: 1}
             offset: {x: 0, y: 0}
         data:
           first:
@@ -264,22 +264,17 @@ SubstanceImporter:
             name: _Color
           second: {r: 1, g: 1, b: 1, a: 1}
     textureParameters:
-    - name: tiles_006_Diffuse
-      alphaSource: 5
+    - name: cube wall_Diffuse
+      alphaSource: 6
       filterMode: 1
       aniso: 1
       wrapMode: 0
-    - name: tiles_006_Specular
+    - name: cube wall_Normal
       alphaSource: 0
       filterMode: 1
       aniso: 1
       wrapMode: 0
-    - name: tiles_006_Normal
-      alphaSource: 0
-      filterMode: 1
-      aniso: 1
-      wrapMode: 0
-    - name: tiles_006_Height
+    - name: cube wall_Height
       alphaSource: 0
       filterMode: 1
       aniso: 1
