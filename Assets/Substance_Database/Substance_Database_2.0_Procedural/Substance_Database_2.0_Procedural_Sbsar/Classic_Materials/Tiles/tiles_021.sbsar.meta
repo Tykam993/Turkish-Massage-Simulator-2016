@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5635b8849484ed64eabb3102614f5364
-timeCreated: 1447086079
+timeCreated: 1447931572
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -8,9 +8,9 @@ SubstanceImporter:
   - serializedVersion: 16
     name: tiles_021
     prototypeName: tiles_021
-    shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+    shader: {fileID: 4800000, guid: 5c28fd66b52a8fd49866b1341cfc2f59, type: 3}
     shaderKeywords: _NORMALMAP _PARALLAXMAP
-    renderQueue: -1
+    renderQueue: 2000
     lightmapFlags: 5
     inputs:
     - name: $normalformat
@@ -147,7 +147,7 @@ SubstanceImporter:
             name: _BumpMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 10, y: 33}
+            scale: {x: 10, y: 33.5}
             offset: {x: 0, y: 0}
         data:
           first:
@@ -158,10 +158,17 @@ SubstanceImporter:
             offset: {x: 0, y: 0}
         data:
           first:
+            name: _MetallicGlossMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
             name: _ParallaxMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 10, y: 33}
+            scale: {x: 10, y: 33.5}
             offset: {x: 0, y: 0}
         data:
           first:
@@ -191,13 +198,6 @@ SubstanceImporter:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
             offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _MetallicGlossMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
       floats:
         data:
           first:
@@ -213,10 +213,6 @@ SubstanceImporter:
           second: .5
         data:
           first:
-            name: _Parallax
-          second: .0199999996
-        data:
-          first:
             name: _ZWrite
           second: 1
         data:
@@ -225,8 +221,16 @@ SubstanceImporter:
           second: .5
         data:
           first:
+            name: _Metallic
+          second: 0
+        data:
+          first:
             name: _BumpScale
           second: 1
+        data:
+          first:
+            name: _Parallax
+          second: .0199999996
         data:
           first:
             name: _OcclusionStrength
@@ -241,12 +245,16 @@ SubstanceImporter:
           second: 0
         data:
           first:
+            name: _EmissionScaleUI
+          second: 0
+        data:
+          first:
             name: _Mode
           second: 0
         data:
           first:
-            name: _Metallic
-          second: 0
+            name: _Outline
+          second: .00499999989
       colors:
         data:
           first:
@@ -256,6 +264,14 @@ SubstanceImporter:
           first:
             name: _Color
           second: {r: 1, g: 1, b: 1, a: 1}
+        data:
+          first:
+            name: _EmissionColorUI
+          second: {r: 1, g: 1, b: 1, a: 1}
+        data:
+          first:
+            name: _OutlineColor
+          second: {r: 0, g: 0, b: 0, a: 1}
     textureParameters:
     - name: tiles_021_Diffuse
       alphaSource: 5
