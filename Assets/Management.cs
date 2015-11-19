@@ -14,6 +14,7 @@ public class Management : MonoBehaviour {
     public Text stamVal;
     public Text cumfVal;
     public float curCliVal;
+    public AudioClip success;
     // Use this for initialization
     void Start () {
         skel = false;
@@ -71,6 +72,6 @@ public class Management : MonoBehaviour {
         }
         curCliVal = 0;
         cumfVal.text = "0";
-
+        GetComponent<AudioSource>().PlayOneShot(success);
     }
 }
