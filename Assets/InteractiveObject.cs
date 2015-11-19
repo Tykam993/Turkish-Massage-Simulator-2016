@@ -1,15 +1,13 @@
 ﻿using System;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
-using UnityStandardAssets.Utility;
-using Random = UnityEngine.Random;
-using System.Collections;
+
 
 public class InteractiveObject : MonoBehaviour {
 
     public string toolTip;
     public float size;
     public float vel;
+    public float totalPain;
 
 	// Use this for initialization
 	void Start () {
@@ -20,4 +18,9 @@ public class InteractiveObject : MonoBehaviour {
 	void Update () {
         vel = GetComponent<Rigidbody>().velocity.magnitude;
 	}
+    public void RemoveMe()
+    {
+        //gameObject.SetActive(false);
+        GameObject.Destroy(gameObject); //hmmm
+    }
 }
