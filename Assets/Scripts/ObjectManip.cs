@@ -1,13 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class ObjectManip : MonoBehaviour {
 
 
     public GameObject carriedOb;
     public GameObject tTipText;
-   
+
 
     // Use this for initialization
     void Start () {
@@ -32,9 +33,24 @@ public class ObjectManip : MonoBehaviour {
                         carriedOb.GetComponent<Rigidbody>().isKinematic = true;
                     }
                 }
+
+				if (hit.transform.gameObject.tag == "Interface") { //hit.transform.gameObject.GetComponent<InteractiveObject>() && hit.transform.gameObject.tag == "Interface") {
+					tTipText.GetComponent<Text>().text = hit.transform.gameObject.GetComponent<InteractiveObject>().toolTip;
+					tTipText.GetComponent<Text>().color = Color.white;
+
+					if (Input.GetKeyDown(KeyCode.E)) {
+
+						GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = false;
+
+					}
+
+				}
                
             }
+
         }
+
+
         else
         {
 
@@ -47,8 +63,10 @@ public class ObjectManip : MonoBehaviour {
             {
                 carriedOb.GetComponent<Rigidbody>().isKinematic = false;
                 carriedOb = null;
+				GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = true;
                 
             }
         }
+
     }
 }
