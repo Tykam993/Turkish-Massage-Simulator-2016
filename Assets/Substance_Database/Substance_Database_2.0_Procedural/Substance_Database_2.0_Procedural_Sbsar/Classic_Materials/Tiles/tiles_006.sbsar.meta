@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 46855b700ffa5974897c956b92d492bb
-timeCreated: 1447634983
+timeCreated: 1448297790
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -154,7 +154,7 @@ SubstanceImporter:
             name: _BumpMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 7, y: 5}
+            scale: {x: 8, y: 5}
             offset: {x: 0, y: 0}
         data:
           first:
@@ -168,7 +168,14 @@ SubstanceImporter:
             name: _ParallaxMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 7, y: 5}
+            scale: {x: 8, y: 5}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _MetallicGlossMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
             offset: {x: 0, y: 0}
         data:
           first:
@@ -194,13 +201,6 @@ SubstanceImporter:
         data:
           first:
             name: _DetailAlbedoMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -232,6 +232,10 @@ SubstanceImporter:
           second: .5
         data:
           first:
+            name: _Metallic
+          second: 0
+        data:
+          first:
             name: _BumpScale
           second: 1
         data:
@@ -249,10 +253,6 @@ SubstanceImporter:
         data:
           first:
             name: _Mode
-          second: 0
-        data:
-          first:
-            name: _Metallic
           second: 0
       colors:
         data:
@@ -285,10 +285,6 @@ SubstanceImporter:
       aniso: 1
       wrapMode: 0
     textureAssignments:
-    - shaderProp:
-        name: _MainTex
-      material: {instanceID: 0}
-      baseUID: 3801136468
     - shaderProp:
         name: _BumpMap
       material: {instanceID: 0}
