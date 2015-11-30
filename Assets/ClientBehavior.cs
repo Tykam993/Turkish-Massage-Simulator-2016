@@ -6,7 +6,8 @@ public class ClientBehavior : MonoBehaviour {
     public int painAmt;
     public string clientName;
     public GameObject painInd;
-    public int painCount = 0;
+    private int painCount = 0;
+    public float timeWithClient; // The amount of time of the appointment in seconds.
 	// Use this for initialization
 	void Start () {
 

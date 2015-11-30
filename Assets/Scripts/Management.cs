@@ -12,8 +12,8 @@ public class Management : MonoBehaviour {
     
 
 
-    public int time;
-    private int clock;
+    private float cTime = 20; // the amount of time to massage the current client
+    private float clock;
 
     public Text stamVal;
     public Text cumfVal;
@@ -26,9 +26,14 @@ public class Management : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	if (curCliVal >= 100)
+        if (currentClient && clock < Time.time)
         {
 
+            Win();
+        }
+
+	if (curCliVal >= 100)
+        {
             Win();
         }
 	}
@@ -44,59 +49,15 @@ public class Management : MonoBehaviour {
             GameObject newClient = (GameObject)Instantiate(client, transform.position, transform.rotation);
 
             currentClient = newClient;
+            cTime = currentClient.GetComponent<ClientBehavior>().timeWithClient;
             float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
             cumfVal.text = startCumf.ToString();
             curCliVal = startCumf;
         }
-        else // if the UI has not given the manager a client to spawn then the manager will pick one randomly.
-        {
-            float rNum = Random.Range(1, 3);
-            if (rNum <= 1)
-            {
-                if (currentClient)
-                {
-                    currentClient.GetComponent<InteractiveObject>().RemoveMe();
-                }
-                GameObject newClient = (GameObject)Instantiate(client1, transform.position, transform.rotation);
-
-                currentClient = newClient;
-                float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
-                cumfVal.text = startCumf.ToString();
-                curCliVal = startCumf;
-
-            }
-            else if (rNum >1 && rNum <=2)
-            {
-                if (currentClient)
-                {
-                    currentClient.GetComponent<InteractiveObject>().RemoveMe();
-                }
-                GameObject newClient = (GameObject)Instantiate(client2, transform.position, transform.rotation);
+       
 
 
-                currentClient = newClient;
-                float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
-                cumfVal.text = startCumf.ToString();
-
-            }
-            else if (rNum > 2 && rNum <=3)
-            {
-                if (currentClient)
-                {
-                    currentClient.GetComponent<InteractiveObject>().RemoveMe();
-                }
-                GameObject newClient = (GameObject)Instantiate(client3, transform.position, transform.rotation);
-
-
-                currentClient = newClient;
-                float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
-                cumfVal.text = startCumf.ToString();
-
-            }
-        }
-
-
-
+        clock = Time.time + cTime;
     }
     public void SpawnClientRand()
     {
@@ -111,7 +72,8 @@ public class Management : MonoBehaviour {
                 GameObject newClient = (GameObject)Instantiate(client1, transform.position, transform.rotation);
 
                 currentClient = newClient;
-                float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
+            cTime = currentClient.GetComponent<ClientBehavior>().timeWithClient;
+            float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
                 cumfVal.text = startCumf.ToString();
                 curCliVal = startCumf;
 
@@ -126,7 +88,8 @@ public class Management : MonoBehaviour {
 
 
                 currentClient = newClient;
-                float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
+            cTime = currentClient.GetComponent<ClientBehavior>().timeWithClient;
+            float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
                 cumfVal.text = startCumf.ToString();
 
             }
@@ -140,12 +103,13 @@ public class Management : MonoBehaviour {
 
 
                 currentClient = newClient;
-                float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
+            cTime = currentClient.GetComponent<ClientBehavior>().timeWithClient;
+            float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
                 cumfVal.text = startCumf.ToString();
 
             }
-        
 
+        clock = Time.time + cTime;
 
 
     }
