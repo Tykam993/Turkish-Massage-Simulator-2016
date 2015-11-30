@@ -9,6 +9,10 @@ public class ObjectManip : MonoBehaviour {
     public GameObject carriedOb;
     public GameObject tTipText;
 
+	private Vector3 clipBoardPos = new Vector3(0.734f, 0.31f, -9.412f);
+	private Vector3 clipBoardRot = new Vector3(0, 218.3478f, 0);
+
+	public GameObject clipboard;
 
     // Use this for initialization
     void Start () {
@@ -38,10 +42,13 @@ public class ObjectManip : MonoBehaviour {
 					tTipText.GetComponent<Text>().text = hit.transform.gameObject.GetComponent<InteractiveObject>().toolTip;
 					tTipText.GetComponent<Text>().color = Color.white;
 
+
 					if (Input.GetKeyDown(KeyCode.E)) {
 
 						GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = false;
+						Vector3 holdPos = transform.position + transform.forward;
 
+						//Instantiate(clipboard, transform.position + transform.forward*1, transform.rotation);
 					}
 
 				}
