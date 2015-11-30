@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class FadeText : MonoBehaviour {
-
+    public float fadeRate;
 	// Use this for initialization
 	void Start () {
 	
@@ -11,6 +11,6 @@ public class FadeText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GetComponent<Text>().color = Color.Lerp(GetComponent<Text>().color, Color.clear, 0.05f);
+        GetComponent<Text>().color = Color.Lerp(GetComponent<Text>().color, Color.clear, fadeRate);
 	}
 }

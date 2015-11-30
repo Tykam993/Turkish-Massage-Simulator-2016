@@ -13,6 +13,7 @@ public class ObjectManip : MonoBehaviour {
 	private Vector3 clipBoardRot = new Vector3(0, 218.3478f, 0);
 
 	public GameObject clipboard;
+    public float pickupDist;
 
     // Use this for initialization
     void Start () {
@@ -24,7 +25,7 @@ public class ObjectManip : MonoBehaviour {
         if (!carriedOb)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, 2f))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, pickupDist))
             {
 
                 if (hit.transform.gameObject.GetComponent<InteractiveObject>())
