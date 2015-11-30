@@ -6,8 +6,8 @@
 [Bb]uild
 [Ll]ibrary/
 sysinfo.txt
-#*.meta
-#!Scene.meta
+*.meta
+!*.unity.meta
  
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
