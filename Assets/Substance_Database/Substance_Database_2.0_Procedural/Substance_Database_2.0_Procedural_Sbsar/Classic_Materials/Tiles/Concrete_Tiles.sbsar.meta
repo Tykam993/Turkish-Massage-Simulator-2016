@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f90d35e7f7ce62f4e8c7699e602b8364
-timeCreated: 1447931617
+timeCreated: 1449264824
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -10,7 +10,7 @@ SubstanceImporter:
     prototypeName: Concrete_Tiles
     shader: {fileID: 4800000, guid: 5c28fd66b52a8fd49866b1341cfc2f59, type: 3}
     shaderKeywords: _NORMALMAP _PARALLAXMAP
-    renderQueue: 2000
+    renderQueue: -1
     lightmapFlags: 5
     inputs:
     - name: $normalformat
@@ -266,11 +266,11 @@ SubstanceImporter:
         data:
           first:
             name: _EmissionColor
-          second: {r: 0, g: 0, b: 0, a: 1}
+          second: {r: 0, g: 0, b: 0, a: 0}
         data:
           first:
             name: _Color
-          second: {r: 1, g: 1, b: 1, a: 1}
+          second: {r: .815999985, g: .933823526, b: .927856863, a: 1}
         data:
           first:
             name: _EmissionColorUI
