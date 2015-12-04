@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Models/Cactus/Materials.meta
 guid: c7297b9e4d9c567409b11ae13c97c144
 folderAsset: yes
 timeCreated: 1447954526
+=======
+guid: dbe4db508212dad48b85644b05b0ca3c
+folderAsset: yes
+timeCreated: 1448845492
+>>>>>>> 1b91d185b31524d1b1e1cf9279ad5c06d86e3563:Assets/Models/Cactus/Materials.meta
 licenseType: Free
 DefaultImporter:
   userData: 

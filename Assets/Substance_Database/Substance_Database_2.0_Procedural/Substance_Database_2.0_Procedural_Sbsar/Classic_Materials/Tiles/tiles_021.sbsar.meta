@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5635b8849484ed64eabb3102614f5364
-timeCreated: 1447931572
+timeCreated: 1447989750
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -10,7 +10,7 @@ SubstanceImporter:
     prototypeName: tiles_021
     shader: {fileID: 4800000, guid: 5c28fd66b52a8fd49866b1341cfc2f59, type: 3}
     shaderKeywords: _NORMALMAP _PARALLAXMAP
-    renderQueue: 2000
+    renderQueue: -1
     lightmapFlags: 5
     inputs:
     - name: $normalformat
@@ -158,17 +158,17 @@ SubstanceImporter:
             offset: {x: 0, y: 0}
         data:
           first:
-            name: _MetallicGlossMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
             name: _ParallaxMap
           second:
             texture: {instanceID: 0}
             scale: {x: 10, y: 33.5}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _MetallicGlossMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
             offset: {x: 0, y: 0}
         data:
           first:
@@ -213,6 +213,10 @@ SubstanceImporter:
           second: .5
         data:
           first:
+            name: _Parallax
+          second: .0199999996
+        data:
+          first:
             name: _ZWrite
           second: 1
         data:
@@ -229,10 +233,6 @@ SubstanceImporter:
           second: 1
         data:
           first:
-            name: _Parallax
-          second: .0199999996
-        data:
-          first:
             name: _OcclusionStrength
           second: 1
         data:
@@ -245,11 +245,11 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _EmissionScaleUI
+            name: _Mode
           second: 0
         data:
           first:
-            name: _Mode
+            name: _EmissionScaleUI
           second: 0
         data:
           first:
@@ -259,7 +259,7 @@ SubstanceImporter:
         data:
           first:
             name: _EmissionColor
-          second: {r: 0, g: 0, b: 0, a: 1}
+          second: {r: 0, g: 0, b: 0, a: 0}
         data:
           first:
             name: _Color
