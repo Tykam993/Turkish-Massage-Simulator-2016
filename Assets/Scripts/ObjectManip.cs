@@ -14,7 +14,8 @@ public class ObjectManip : MonoBehaviour {
 
 	public GameObject clipboard;
     public float pickupDist;
-
+    private float setDist = 1.0f;
+    private bool movingOb;
     // Use this for initialization
     void Start () {
 
@@ -22,6 +23,7 @@ public class ObjectManip : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        setDist = Mathf.Clamp(setDist + (Input.GetAxis("Mouse ScrollWheel")*0.3f), 0.5f, 1.5f);
         if (!carriedOb)
         {
             RaycastHit hit;
@@ -36,6 +38,8 @@ public class ObjectManip : MonoBehaviour {
                     {
                         carriedOb = hit.transform.gameObject;
                         carriedOb.GetComponent<Rigidbody>().isKinematic = true;
+                        carriedOb.GetComponent<InteractiveObject>().SetControllerOb(this.gameObject);
+
                     }
                 }
 
@@ -62,19 +66,36 @@ public class ObjectManip : MonoBehaviour {
         else
         {
 
-            Vector3 holdPos = transform.position + transform.forward;
-            //Vector3 holdPos = transform.position;
-            // holdPos.z = holdPos.z + carriedOb.GetComponent<InteractiveObject>().size;
+            Vector3 holdPos = transform.position + (transform.forward * setDist);
 
-            carriedOb.transform.position = Vector3.Lerp(carriedOb.transform.position, holdPos, 1);
+            if (!movingOb)
+            {
+                carriedOb.transform.position = Vector3.Lerp(carriedOb.transform.position, holdPos, 1);
+                carriedOb.transform.rotation = transform.rotation;
+            }
+
+            if (Input.GetMouseButton(0))
+            {
+                movingOb = true;
+                carriedOb.GetComponent<InteractiveObject>().PlayMovement();
+
+            }
+
             if (Input.GetKeyDown(KeyCode.E))
             {
+                movingOb = false;
+                carriedOb.GetComponent<InteractiveObject>().SetControllerOb(null);
                 carriedOb.GetComponent<Rigidbody>().isKinematic = false;
                 carriedOb = null;
 				GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = true;
-                
+                setDist = 1.0f;
             }
         }
 
+    }
+    public void FinishObjectMove()
+    {
+
+        movingOb = false;
     }
 }

@@ -32,6 +32,7 @@ public class Management : MonoBehaviour {
         {
             timeRem.text = (clock - Time.time).ToString("F2");
             if (clock < Time.time) {
+                timeRem.text = "0:00";
                 Win();
             }
         }

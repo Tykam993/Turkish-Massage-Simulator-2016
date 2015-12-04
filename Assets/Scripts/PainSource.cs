@@ -20,6 +20,11 @@ public class PainSource : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         manager = GameObject.FindGameObjectWithTag("Manage");
+        if (surfPainLvl <= 0)
+        {
+
+            Removepain();
+        }
     }
     void ClearPain()
     {
@@ -61,5 +66,10 @@ public class PainSource : MonoBehaviour {
 
         }
 
+    }
+    void Removepain()
+    {
+
+        Destroy(gameObject);
     }
 }
