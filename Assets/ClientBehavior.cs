@@ -26,7 +26,7 @@ public class ClientBehavior : MonoBehaviour {
     void CastPain ()
     {
         
-        Debug.Log("paincast");
+
         float randX = Random.Range(-0.5f, 0.5f);
         float randZ = Random.Range(-0.5f, 1f);
         RaycastHit hit;

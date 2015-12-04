@@ -17,6 +17,8 @@ public class Management : MonoBehaviour {
 
     public Text stamVal;
     public Text cumfVal;
+    public Text clientName;
+    public Text timeRem;
     public float curCliVal;
     public AudioClip success;
     // Use this for initialization
@@ -26,10 +28,13 @@ public class Management : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (currentClient && clock < Time.time)
+        if (currentClient)
         {
-
-            Win();
+            timeRem.text = (clock - Time.time).ToString("F2");
+            if (clock < Time.time) {
+                timeRem.text = "0:00";
+                Win();
+            }
         }
 
 	if (curCliVal >= 100)
@@ -50,6 +55,7 @@ public class Management : MonoBehaviour {
 
             currentClient = newClient;
             cTime = currentClient.GetComponent<ClientBehavior>().timeWithClient;
+            clientName.text = currentClient.GetComponent<ClientBehavior>().clientName;
             float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
             cumfVal.text = startCumf.ToString();
             curCliVal = startCumf;
@@ -72,7 +78,7 @@ public class Management : MonoBehaviour {
                 GameObject newClient = (GameObject)Instantiate(client1, transform.position, transform.rotation);
 
                 currentClient = newClient;
-            cTime = currentClient.GetComponent<ClientBehavior>().timeWithClient;
+            
             float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
                 cumfVal.text = startCumf.ToString();
                 curCliVal = startCumf;
@@ -88,7 +94,7 @@ public class Management : MonoBehaviour {
 
 
                 currentClient = newClient;
-            cTime = currentClient.GetComponent<ClientBehavior>().timeWithClient;
+
             float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
                 cumfVal.text = startCumf.ToString();
 
@@ -103,11 +109,13 @@ public class Management : MonoBehaviour {
 
 
                 currentClient = newClient;
-            cTime = currentClient.GetComponent<ClientBehavior>().timeWithClient;
+
             float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
                 cumfVal.text = startCumf.ToString();
 
             }
+        cTime = currentClient.GetComponent<ClientBehavior>().timeWithClient;
+        clientName.text = currentClient.GetComponent<ClientBehavior>().clientName;
 
         clock = Time.time + cTime;
 

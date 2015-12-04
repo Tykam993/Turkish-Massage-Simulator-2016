@@ -41,6 +41,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_StepCycle;
         private float m_NextStep;
         private bool m_Jumping;
+        private bool crouching;
         private AudioSource m_AudioSource;
 
         private bool UIMode = false;
@@ -57,6 +58,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_StepCycle = 0f;
             m_NextStep = m_StepCycle/2f;
             m_Jumping = false;
+            crouching = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
            Cursor.lockState = CursorLockMode.Locked; //lock cursor
@@ -220,6 +222,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset();
             }
+
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+
+                newCameraPosition.y = newCameraPosition.y - 0.75f;
+
+            }
+
             m_Camera.transform.localPosition = newCameraPosition;
         }
 
