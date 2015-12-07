@@ -5,14 +5,15 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class ObjectManip : MonoBehaviour
 {
-
+    public Transform handLeft;
+    public Transform handRight;
 
     public GameObject carriedOb;
     public GameObject tTipText;
 
     private Vector3 clipBoardPos = new Vector3(0.734f, 0.31f, -9.412f);
     private Vector3 clipBoardRot = new Vector3(0, 218.3478f, 0);
-
+    
     public GameObject clipboard;
     public GameObject clipboardHome;
     public float pickupDist;
@@ -30,6 +31,30 @@ public class ObjectManip : MonoBehaviour
         setDist = Mathf.Clamp(setDist + (Input.GetAxis("Mouse ScrollWheel") * 0.3f), 0.5f, 1.5f);
         if (!carriedOb)
         {
+            if (Input.GetMouseButton(0))
+            {
+                handLeft.GetComponent<Rigidbody>().isKinematic = true;
+                handRight.GetComponent<Rigidbody>().isKinematic = true;
+                RaycastHit hitHands;
+                if (Physics.Raycast(transform.position, transform.forward, out hitHands, 0.9f))
+                {
+                    handLeft.position = Vector3.Lerp(handLeft.position, transform.position + (transform.forward * hitHands.distance) + transform.right * -0.12f, Time.deltaTime * 1.5f);
+                    handRight.position = Vector3.Lerp(handRight.position, transform.position + (transform.forward * hitHands.distance) + transform.right * 0.12f, Time.deltaTime * 1.5f);
+                }
+                else
+                {
+                    handLeft.position = Vector3.Lerp(handLeft.position, transform.position + (transform.forward * 0.7f) + transform.right * -0.12f, Time.deltaTime * 1.5f);
+                    handRight.position = Vector3.Lerp(handRight.position, transform.position + (transform.forward * 0.7f) + transform.right * 0.12f, Time.deltaTime * 1.5f);
+                }
+
+            }
+            else
+            {
+                handLeft.GetComponent<Rigidbody>().isKinematic = false;
+                handRight.GetComponent<Rigidbody>().isKinematic = false;
+            }
+
+
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, pickupDist))
             {
@@ -82,7 +107,7 @@ public class ObjectManip : MonoBehaviour
                 if (!movingOb)
                 {
                     carriedOb.transform.position = Vector3.Lerp(carriedOb.transform.position, holdPos, 1);
-                    carriedOb.transform.rotation = transform.rotation;
+                    carriedOb.transform.rotation = transform.rotation * carriedOb.GetComponent<InteractiveObject>().offsetRot;
                 }
 
                 if (Input.GetMouseButton(0))

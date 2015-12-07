@@ -15,13 +15,16 @@ public class InteractiveObject : MonoBehaviour
     public Vector3 movePos1, movePos2, movePos3, movePos4; // where the object is moved to.
     public float moveSpeed = 1;
     private GameObject controllerOb;
-
+    public Quaternion offsetRot;
+    public ParticleSystem FX;
+    public int FXRate;
     // Use this for initialization
     void Start()
     {
         if (moveSpeed == 0)
         {
-            moveSpeed = 1;
+            
+            moveSpeed = 10;
         }
     }
 
@@ -31,6 +34,10 @@ public class InteractiveObject : MonoBehaviour
 
         if (controllerOb)
         {
+            if (FX)
+            {
+                FX.emissionRate = FXRate;
+            }
             float dist = Vector3.Distance(transform.position, controllerOb.transform.position);
             if (moving == 1)
             {
@@ -87,6 +94,10 @@ public class InteractiveObject : MonoBehaviour
         else
         {
             moving = 0;
+            if (FX)
+            {
+                FX.emissionRate = 0;
+            }
         }
 
 
