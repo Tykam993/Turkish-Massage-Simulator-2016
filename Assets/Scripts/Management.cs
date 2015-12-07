@@ -6,11 +6,14 @@ using UnityEngine.UI;
 public class Management : MonoBehaviour {
 
     public GameObject client1;
+    public GameObject client1Info;
     public GameObject client2;
+    public GameObject client2Info;
     public GameObject client3;
+    public GameObject client3Info;
     private GameObject currentClient;
-    
-
+    private GameObject selectedClient;
+    public GameObject clipboardHome;
 
     private float cTime = 20; // the amount of time to massage the current client
     private float clock;
@@ -25,17 +28,21 @@ public class Management : MonoBehaviour {
     void Start () {
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         if (currentClient)
         {
+            clipboardHome.GetComponent<FlickerFlare>().enabled = false;
             timeRem.text = (clock - Time.time).ToString("F2");
             if (clock < Time.time) {
                 timeRem.text = "0:00";
                 Win();
             }
         }
+        else { 
+        clipboardHome.GetComponent<FlickerFlare>().enabled = true;
+            }
 
 	if (curCliVal >= 100)
         {
@@ -56,7 +63,7 @@ public class Management : MonoBehaviour {
             currentClient = newClient;
             cTime = currentClient.GetComponent<ClientBehavior>().timeWithClient;
             clientName.text = currentClient.GetComponent<ClientBehavior>().clientName;
-            float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain;
+            float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain + 5;
             cumfVal.text = startCumf.ToString();
             curCliVal = startCumf;
         }
@@ -131,5 +138,61 @@ public class Management : MonoBehaviour {
         curCliVal = 0;
         cumfVal.text = "0";
         GetComponent<AudioSource>().PlayOneShot(success);
+    }
+    public void NextC()
+    {
+        if (!selectedClient)
+        {
+            float randN = Random.Range(0, 4);
+            if (randN <= 1) {
+                selectedClient = client1;
+            }
+            else if (randN >1 && randN <= 2)
+            {
+                selectedClient = client2;
+            }
+            else if (randN > 2 && randN <= 3)
+            {
+                selectedClient = client3;
+            }
+            else
+            {
+                NextC();
+            }
+
+        }
+        else
+        {
+            if (selectedClient == client1)
+            {
+                selectedClient = client2;
+                client1Info.SetActive(false);
+                client2Info.SetActive(true);
+                client3Info.SetActive(false);
+            }
+            else if (selectedClient == client2)
+            {
+                selectedClient = client3;
+                client1Info.SetActive(false);
+                client2Info.SetActive(false);
+                client3Info.SetActive(true);
+            }
+            else if (selectedClient == client3)
+            {
+                selectedClient = client1;
+                client1Info.SetActive(true);
+                client2Info.SetActive(false);
+                client3Info.SetActive(false);
+            }
+
+
+
+        }
+
+        
+    }
+    public void SelectClient()
+    {
+        SpawnClient(selectedClient);
     }
 }

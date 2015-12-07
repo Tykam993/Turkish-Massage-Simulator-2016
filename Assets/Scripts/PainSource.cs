@@ -2,18 +2,19 @@
 using System.Collections;
 
 public class PainSource : MonoBehaviour {
-    public float deepPainLvl;
+
     public float surfPainLvl;
-    public float painAmt;
+
     public AudioClip great, good, ok, meh, erm, ow;
     public Color painLevels;
     public bool ready = false;
     public  GameObject manager;
+    private bool discovered;
 
 	// Use this for initialization
 	void Start () {
         ClearPain();
-        painLevels = new Color(surfPainLvl, 0, deepPainLvl);
+        painLevels = new Color(surfPainLvl, 0, 0);
         manager = GameObject.FindGameObjectWithTag ( "Manage" );
     }
 	
@@ -25,6 +26,11 @@ public class PainSource : MonoBehaviour {
 
             Removepain();
         }
+        if (surfPainLvl <1 && !discovered)
+        {
+            transform.root.gameObject.GetComponent<ClientBehavior>().PainFound();
+            discovered = true;
+        }
     }
     void ClearPain()
     {
@@ -33,7 +39,7 @@ public class PainSource : MonoBehaviour {
             GetComponent<AudioSource>().PlayOneShot(ok);
             ready = true;
         }
-        painLevels = new Color(surfPainLvl, 1 - (surfPainLvl+ deepPainLvl), deepPainLvl);
+        painLevels = new Color(surfPainLvl, 1 - surfPainLvl, 0);
         GetComponent<ParticleSystem>().startColor = painLevels;
         if (manager && surfPainLvl > 0)
         {
@@ -50,7 +56,7 @@ public class PainSource : MonoBehaviour {
         {
             GetComponent<ParticleSystem>().startSize = 0.15f;
             GetComponent<ParticleSystem>().startColor = Color.white;
-            deepPainLvl = Mathf.Clamp(deepPainLvl - 0.1f, 0, 1);
+
             surfPainLvl = Mathf.Clamp(surfPainLvl - 0.1f, 0, 1);
             ClearPain();
 
@@ -69,7 +75,7 @@ public class PainSource : MonoBehaviour {
     }
     void Removepain()
     {
-
+        transform.root.gameObject.GetComponent<ClientBehavior>().PainRemoved();
         Destroy(gameObject);
     }
 }

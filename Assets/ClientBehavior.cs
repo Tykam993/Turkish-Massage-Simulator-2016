@@ -3,11 +3,13 @@ using System.Collections;
 
 public class ClientBehavior : MonoBehaviour {
 
+    public AudioClip painGone, painFound;
     public int painAmt;
     public string clientName;
     public GameObject painInd;
     private int painCount = 0;
     public float timeWithClient; // The amount of time of the appointment in seconds.
+    public float voicePitch = 1;
 	// Use this for initialization
 	void Start () {
 
@@ -45,5 +47,18 @@ public class ClientBehavior : MonoBehaviour {
             }
         }
 
+    }
+    public void PainFound()
+    {
+        float pitchVar = Random.Range(voicePitch - 0.1f, voicePitch + 0.1f);
+        GetComponent<AudioSource>().pitch = pitchVar;
+        GetComponent<AudioSource>().PlayOneShot(painFound);
+
+    }
+    public void PainRemoved()
+    {
+        float pitchVar = Random.Range(voicePitch - 0.1f, voicePitch + 0.1f);
+        GetComponent<AudioSource>().pitch = pitchVar;
+        GetComponent<AudioSource>().PlayOneShot(painGone);
     }
 }

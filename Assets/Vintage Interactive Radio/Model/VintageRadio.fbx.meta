@@ -1,0 +1,135 @@
+fileFormatVersion: 2
+guid: 2d1f8553093c07e4bb0eabfd58e9effe
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Arrow
+    100002: BigButton
+    100004: Buttons
+    100006: Knob_Tuner
+    100008: LilButton01
+    100010: LilButton02
+    100012: LilButton03
+    100014: polySurface1
+    100016: polySurface2
+    100018: polySurface3
+    100020: polySurface4
+    100022: polySurface5
+    100024: Radio
+    100026: //RootNode
+    100028: ToggleSwitch
+    100030: transform1
+    100032: transform2
+    100034: transform3
+    100036: transform4
+    400000: Arrow
+    400002: BigButton
+    400004: Buttons
+    400006: Knob_Tuner
+    400008: LilButton01
+    400010: LilButton02
+    400012: LilButton03
+    400014: polySurface1
+    400016: polySurface2
+    400018: polySurface3
+    400020: polySurface4
+    400022: polySurface5
+    400024: Radio
+    400026: //RootNode
+    400028: ToggleSwitch
+    400030: transform1
+    400032: transform2
+    400034: transform3
+    400036: transform4
+    2300000: Arrow
+    2300002: BigButton
+    2300004: LilButton01
+    2300006: LilButton02
+    2300008: LilButton03
+    2300010: polySurface1
+    2300012: polySurface4
+    2300014: polySurface5
+    2300016: ToggleSwitch
+    3300000: Arrow
+    3300002: BigButton
+    3300004: LilButton01
+    3300006: LilButton02
+    3300008: LilButton03
+    3300010: polySurface1
+    3300012: polySurface4
+    3300014: polySurface5
+    3300016: ToggleSwitch
+    4300000: BigButton
+    4300002: LilButton01
+    4300004: LilButton02
+    4300006: LilButton03
+    4300008: polySurface1
+    4300010: polySurface4
+    4300012: ToggleSwitch
+    4300014: Arrow
+    4300016: polySurface5
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .0250000004
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

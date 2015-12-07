@@ -2,11 +2,12 @@
 using UnityEngine;
 
 
-public class InteractiveObject : MonoBehaviour {
+public class InteractiveObject : MonoBehaviour
+{
 
     public string toolTip;
     public float size;
-    public float vel;
+
     public float totalPain;
     public Vector3 hardWetTemp; // stored as vector3 can be negative or positive, if 0 than neutral.
     private int moving;
@@ -15,16 +16,18 @@ public class InteractiveObject : MonoBehaviour {
     public float moveSpeed = 1;
     private GameObject controllerOb;
 
-	// Use this for initialization
-	void Start () {
-        if(moveSpeed == 0)
+    // Use this for initialization
+    void Start()
+    {
+        if (moveSpeed == 0)
         {
             moveSpeed = 1;
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (controllerOb)
         {
@@ -88,8 +91,8 @@ public class InteractiveObject : MonoBehaviour {
 
 
 
-        vel = GetComponent<Rigidbody>().velocity.magnitude;
-	}
+
+    }
     public void RemoveMe()
     {
         //gameObject.SetActive(false);

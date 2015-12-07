@@ -71,19 +71,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
 
             
-
-            if (Input.GetKeyDown(KeyCode.LeftAlt) && UIMode) //Toggle UI MODE
-            {
-                UIMode = false;
-                Cursor.lockState = CursorLockMode.Locked; //keep cursor to screen center;
-                Cursor.visible = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftAlt) && !UIMode)//Toggle UI MODE
+            if (Input.GetKey(KeyCode.LeftAlt))//Toggle UI MODE
             {
                 UIMode = true;
                 Cursor.lockState = CursorLockMode.None;//free the cursor
                 Cursor.visible = true;
             }
+             else if (UIMode)//Toggle UI MODE
+            {
+                UIMode = false;
+                Cursor.lockState = CursorLockMode.Locked; //keep cursor to screen center;
+                Cursor.visible = false;
+            }
+
 
             if (!UIMode) { //if UI mode then allow the camera to move
             RotateView();
