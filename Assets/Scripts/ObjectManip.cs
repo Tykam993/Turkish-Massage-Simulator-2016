@@ -71,6 +71,17 @@ public class ObjectManip : MonoBehaviour
 
                     }
                 }
+                if (hit.transform.tag == "Door")
+                {
+                    tTipText.GetComponent<Text>().text = "Push E to Exit";
+                    tTipText.GetComponent<Text>().color = Color.white;
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        Application.LoadLevel("Main_Menu");
+                    }
+
+
+                }
 
                 if (hit.transform.gameObject == clipboard.gameObject)
                 {

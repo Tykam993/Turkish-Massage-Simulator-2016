@@ -17,7 +17,8 @@ public class Management : MonoBehaviour {
 
     private float cTime = 20; // the amount of time to massage the current client
     private float clock;
-
+    public int currentCredits = 10;
+    public Text creditDisp;
     public Text stamVal;
     public Text cumfVal;
     public Text clientName;
@@ -26,8 +27,9 @@ public class Management : MonoBehaviour {
     public AudioClip success;
     // Use this for initialization
     void Start () {
-
-	}
+        Cursor.lockState = CursorLockMode.None; //keep cursor to screen center;
+        Cursor.visible = true;
+    }
 
     // Update is called once per frame
     void Update() {
@@ -40,8 +42,11 @@ public class Management : MonoBehaviour {
                 Win();
             }
         }
-        else { 
-        clipboardHome.GetComponent<FlickerFlare>().enabled = true;
+        else {
+            if (clipboardHome)
+            {
+                clipboardHome.GetComponent<FlickerFlare>().enabled = true;
+            }
             }
 
 	if (curCliVal >= 100)
@@ -62,7 +67,7 @@ public class Management : MonoBehaviour {
 
             currentClient = newClient;
             cTime = currentClient.GetComponent<ClientBehavior>().timeWithClient;
-            clientName.text = currentClient.GetComponent<ClientBehavior>().clientName;
+           // clientName.text = currentClient.GetComponent<ClientBehavior>().clientName;
             float startCumf = 100 - currentClient.GetComponent<InteractiveObject>().totalPain + 5;
             cumfVal.text = startCumf.ToString();
             curCliVal = startCumf;
@@ -194,5 +199,29 @@ public class Management : MonoBehaviour {
     public void SelectClient()
     {
         SpawnClient(selectedClient);
+    }
+    public void Quit()
+    {
+
+        Application.Quit();
+    }
+    public void StartGame()
+    {
+
+        //DontDestroyOnLoad(this.gameObject);
+        Application.LoadLevel("Scene");
+    }
+    public void NavToMain()
+    {
+
+        Cursor.lockState = CursorLockMode.None; //keep cursor to screen center;
+        Cursor.visible = true;
+        Application.LoadLevel("Main_Menu");
+    }
+    public void UpdateCredits(int numCred)
+    {
+        int curCreds = int.Parse(creditDisp.text);
+        curCreds = curCreds + numCred;
+        creditDisp.text = curCreds.ToString();
     }
 }

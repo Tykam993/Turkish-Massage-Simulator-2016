@@ -18,6 +18,7 @@ public class InteractiveObject : MonoBehaviour
     public Quaternion offsetRot;
     public ParticleSystem FX;
     public int FXRate;
+    public int payAmt = 60;
     // Use this for initialization
     void Start()
     {
@@ -107,6 +108,11 @@ public class InteractiveObject : MonoBehaviour
     public void RemoveMe()
     {
         //gameObject.SetActive(false);
+        if (transform.tag == "Client")
+        {
+            GameObject man = GameObject.FindGameObjectWithTag("Manage");
+            man.GetComponent<Management>().UpdateCredits(payAmt);
+        }
         GameObject.Destroy(gameObject); //hmmm
     }
     public void PlayMovement()
