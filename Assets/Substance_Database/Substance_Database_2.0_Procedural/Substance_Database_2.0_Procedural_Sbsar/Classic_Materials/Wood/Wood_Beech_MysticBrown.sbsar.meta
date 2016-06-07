@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 795894c6c1265a64c8c546f7b9ef8fb2
-timeCreated: 1447932680
+timeCreated: 1462194715
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -9,7 +9,7 @@ SubstanceImporter:
     name: Wood_Beech_MysticBrown
     prototypeName: Wood_Beech_MysticBrown
     shader: {fileID: 4800000, guid: 5c28fd66b52a8fd49866b1341cfc2f59, type: 3}
-    shaderKeywords: _NORMALMAP _PARALLAXMAP
+    shaderKeywords: _DETAIL_MULX2 _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
     renderQueue: 2000
     lightmapFlags: 5
     inputs:
@@ -43,14 +43,14 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Saturation
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Luminosity
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -64,7 +64,7 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Angle
       value:
-        scalar[0]: .125
+        scalar[0]: 0.125
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -78,7 +78,7 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Normal
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -99,14 +99,14 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Knots
       value:
-        scalar[0]: .25
+        scalar[0]: 0.25
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Fibers
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -114,7 +114,7 @@ SubstanceImporter:
     materialInformation:
       serializedVersion: 5
       offset: {x: 0, y: 0}
-      scale: {x: 1.20000005, y: 1.20000005}
+      scale: {x: 1.2, y: 1.2}
       generateMipmaps: 1
       generateAllOutputs: 0
       animationUpdateRate: 0
@@ -126,14 +126,14 @@ SubstanceImporter:
             name: _MainTex
           second:
             texture: {instanceID: 0}
-            scale: {x: 1.20000005, y: 1.20000005}
+            scale: {x: 1.2, y: 1.2}
             offset: {x: 0, y: 0}
         data:
           first:
             name: _BumpMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 1.20000005, y: 1.20000005}
+            scale: {x: 1.2, y: 1.2}
             offset: {x: 0, y: 0}
         data:
           first:
@@ -144,17 +144,10 @@ SubstanceImporter:
             offset: {x: 0, y: 0}
         data:
           first:
-            name: _MetallicGlossMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
             name: _ParallaxMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 1.20000005, y: 1.20000005}
+            scale: {x: 1.2, y: 1.2}
             offset: {x: 0, y: 0}
         data:
           first:
@@ -168,7 +161,7 @@ SubstanceImporter:
             name: _EmissionMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 1.20000005, y: 1.20000005}
+            scale: {x: 1.2, y: 1.2}
             offset: {x: 0, y: 0}
         data:
           first:
@@ -180,6 +173,13 @@ SubstanceImporter:
         data:
           first:
             name: _DetailAlbedoMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -196,7 +196,11 @@ SubstanceImporter:
         data:
           first:
             name: _Cutoff
-          second: .5
+          second: 0.5
+        data:
+          first:
+            name: _Parallax
+          second: 0.02
         data:
           first:
             name: _ZWrite
@@ -204,19 +208,11 @@ SubstanceImporter:
         data:
           first:
             name: _Glossiness
-          second: .5
-        data:
-          first:
-            name: _Metallic
-          second: 0
+          second: 0.5
         data:
           first:
             name: _BumpScale
           second: 1
-        data:
-          first:
-            name: _Parallax
-          second: .0199999996
         data:
           first:
             name: _OcclusionStrength
@@ -231,16 +227,20 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _EmissionScaleUI
-          second: 0
-        data:
-          first:
             name: _Mode
           second: 0
         data:
           first:
+            name: _Metallic
+          second: 0
+        data:
+          first:
+            name: _EmissionScaleUI
+          second: 0
+        data:
+          first:
             name: _Outline
-          second: .00499999989
+          second: 0.005
       colors:
         data:
           first:
@@ -292,6 +292,10 @@ SubstanceImporter:
         name: _ParallaxMap
       material: {instanceID: 0}
       baseUID: 1496713787
+    - shaderProp:
+        name: _MetallicGlossMap
+      material: {instanceID: 0}
+      baseUID: 1496713728
     buildTargetSettings:
     - serializedVersion: 2
       buildTarget: 
